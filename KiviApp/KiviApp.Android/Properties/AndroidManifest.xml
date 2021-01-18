@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" package="com.companyname.KiviApp.Android" android:installLocation="internalOnly" android:versionCode="3">
+	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28" />
+	<application android:label="KIVI Pistelaskuri" android:icon="@mipmap/kiviapp_icon"></application>
+</manifest>

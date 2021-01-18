@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KiviApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PopupWindowColor">#505050</Color>
+            <Color x:Key="PopupTextColor">#101010</Color>
+            <Color x:Key="TitleColor">#dedede</Color>
+            <Color x:Key="BackgroundColor">#4a4a4a</Color>
+            <Color x:Key="ButtonBackgroundColor">#181818</Color>
+            <Color x:Key="ButtonBorderColor">#303030</Color>
+            <Color x:Key="LightBackground">#5c5c5c</Color>
+            <Color x:Key="RedBoardColor">#85273d</Color>
+            <Color x:Key="WhiteBoardColor">#eeeeee</Color>
+            <Color x:Key="BlackBoardColor">#0b0b0b</Color>
+            <Color x:Key="GreenColor">#078507</Color>
+            <x:String x:Key="CalculatePoints">LASKE PISTEET</x:String>
+
+            <!-- Coefficient values that are used to calculate element sizes to fit device screen. -->
+            <!-- FONTS -->
+            <x:Double x:Key="TitleFontX">0.12</x:Double>
+            <x:Double x:Key="NormalFontX">0.045</x:Double>
+            <x:Double x:Key="BoldFontX">0.05</x:Double>
+
+            <!-- SETTINGS -->
+            <x:Double x:Key="SettingsButtonWidthMarginX">0.1</x:Double>
+            <x:Double x:Key="SettingsButtonHeightMarginX">0.02</x:Double>
+            <x:Double x:Key="SettingsButtonHeightRequestX">0.1</x:Double>
+            <x:Double x:Key="SettingsButtonWidthRequestX">0.6</x:Double>
+            <x:Double x:Key="SettingsSwitchScaleX">0.003</x:Double>
+            <x:Double x:Key="SettingsGridSpacingScaleX">0.02</x:Double>
+            
+            <!-- KIVIPOPUPWINDOW -->
+            <x:Double x:Key="KiviPlayerIconSizeX">0.25</x:Double>
+            <x:Double x:Key="KiviButtonMarginX">0.1</x:Double>
+            <x:Double x:Key="KiviButtonTopMarginX">0.02</x:Double>
+            <x:Double x:Key="KiviStackPaddingX">0.02</x:Double>
+            <x:Double x:Key="InfoIconX">0.065</x:Double>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

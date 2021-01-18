@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KiviApp.Android", "KiviApp\KiviApp.Android\KiviApp.Android.csproj", "{DBAAF8B3-D66D-4C0D-82FB-A4DCCE984DCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KiviApp", "KiviApp\KiviApp\KiviApp.csproj", "{0ED6AADA-2089-41B6-BB19-236305D14F8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBAAF8B3-D66D-4C0D-82FB-A4DCCE984DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBAAF8B3-D66D-4C0D-82FB-A4DCCE984DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBAAF8B3-D66D-4C0D-82FB-A4DCCE984DCF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DBAAF8B3-D66D-4C0D-82FB-A4DCCE984DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBAAF8B3-D66D-4C0D-82FB-A4DCCE984DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBAAF8B3-D66D-4C0D-82FB-A4DCCE984DCF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0ED6AADA-2089-41B6-BB19-236305D14F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED6AADA-2089-41B6-BB19-236305D14F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED6AADA-2089-41B6-BB19-236305D14F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED6AADA-2089-41B6-BB19-236305D14F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8267BFA7-6A06-4A52-B7D5-9362C33D041F}
+	EndGlobalSection
+EndGlobal

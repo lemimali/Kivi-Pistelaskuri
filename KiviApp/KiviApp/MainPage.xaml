@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:KiviApp"
+             x:Class="KiviApp.MainPage">
+
+    <ContentPage.Resources>
+        <!-- Coefficient values that are used to scale objects -->
+        <ResourceDictionary>
+            <x:Double x:Key="AppTitleX">0.12</x:Double>
+            <x:Double x:Key="ButtonFontSizeX">0.065</x:Double>
+            <x:Double x:Key="ButtonMarginX">0.15</x:Double>
+            <x:Double x:Key="ButtonHeightRequestX">0.2</x:Double>
+            <x:Double x:Key="SettingsIconX">0.125</x:Double>
+        </ResourceDictionary>
+
+        <!-- Style that makes gameboard buttons scale up a little bit when pressed -->
+        <Style TargetType="custom:ImageButtonWithName">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                            Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                            Value="1.2" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+        <!-- Button styling -->
+        <Style TargetType="Button" x:Name="ButtonStyle">
+            <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                            Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                            Value="1.1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{StaticResource BackgroundColor}" Padding="5" x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" /> <!-- Screen height will be changed in MainPage.cs to match device's screen width -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Title text and settings imagebutton -->
+        <StackLayout Grid.Row="0" VerticalOptions="CenterAndExpand" Orientation="Horizontal" >
+            <Label Text="Kivi Pistelaskuri" TextColor="{StaticResource TitleColor}" FontAttributes="Bold" FontFamily="Lobster_1.3.otf#Lobster_1.3"
+                       HorizontalTextAlignment="Center" FontSize="50" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                   x:Name="AppTitle"/>
+            <ImageButton Source="setting_icon.png" HorizontalOptions="CenterAndExpand" x:Name="SettingsIcon"
+                         BackgroundColor="Transparent" Clicked="OpenSettings"/>
+        </StackLayout>
+
+        <!-- Grid that has the gameboard in it -->
+        <Grid Grid.Row="1" BackgroundColor="Black" Padding="10" x:Name="GameBoardGrid"> <!-- TODO padding ja margin pitää laskea käsin apin launchissa -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- All squares from the gameboard -->
+            <custom:GameBoardSquare Grid.Row="0" Grid.Column="0" BackgroundColor="{StaticResource WhiteBoardColor}">
+                <custom:ImageButtonWithName ImageName="v1h1" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="0" Grid.Column="1" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v1h2" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="0" Grid.Column="2" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v1h3" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="0" Grid.Column="3" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v1h4" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="0" Grid.Column="4" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v1h5" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="0" Grid.Column="5" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v1h6" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="0" Grid.Column="6" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v1h7" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="1" Grid.Column="0" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v2h1" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v2h2" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="1" Grid.Column="2" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v2h3" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="1" Grid.Column="3" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v2h4" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="1" Grid.Column="4" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v2h5" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="1" Grid.Column="5" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v2h6" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="1" Grid.Column="6" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v2h7" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="2" Grid.Column="0" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v3h1" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v3h2" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="2" Grid.Column="2" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v3h3" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="2" Grid.Column="3" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v3h4" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="2" Grid.Column="4" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v3h5" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="2" Grid.Column="5" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v3h6" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="2" Grid.Column="6" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v3h7" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="3" Grid.Column="0" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v4h1" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="3" Grid.Column="1" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v4h2" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="3" Grid.Column="2" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v4h3" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="3" Grid.Column="3" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v4h4" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="3" Grid.Column="4" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v4h5" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="3" Grid.Column="5" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v4h6" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="3" Grid.Column="6" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v4h7" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="4" Grid.Column="0" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v5h1" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="4" Grid.Column="1" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v5h2" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="4" Grid.Column="2" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v5h3" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="4" Grid.Column="3" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v5h4" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="4" Grid.Column="4" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v5h5" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="4" Grid.Column="5" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v5h6" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="4" Grid.Column="6" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v5h7" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="5" Grid.Column="0" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v6h1" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="5" Grid.Column="1" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v6h2" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="5" Grid.Column="2" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v6h3" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="5" Grid.Column="3" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v6h4" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="5" Grid.Column="4" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v6h5" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="5" Grid.Column="5" BackgroundColor="{StaticResource RedBoardColor}">
+              <custom:ImageButtonWithName ImageName="v6h6" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="5" Grid.Column="6" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v6h7" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="6" Grid.Column="0" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v7h1" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="6" Grid.Column="1" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v7h2" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="6" Grid.Column="2" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v7h3" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="6" Grid.Column="3" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v7h4" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="6" Grid.Column="4" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v7h5" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="6" Grid.Column="5" BackgroundColor="{StaticResource BlackBoardColor}">
+              <custom:ImageButtonWithName ImageName="v7h6" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+            <custom:GameBoardSquare Grid.Row="6" Grid.Column="6" BackgroundColor="{StaticResource WhiteBoardColor}">
+              <custom:ImageButtonWithName ImageName="v7h7" Clicked="ButtonClick" />
+            </custom:GameBoardSquare>
+        </Grid>
+
+        <!-- Button that calculates scores -->
+        <Grid Grid.Row="2" Padding="10">
+            <Button Margin="50, 20" Text="{StaticResource CalculatePoints}" Clicked="CalculateScores" x:Name="CalculateButton" />
+        </Grid>
+
+    </Grid>
+</ContentPage>
